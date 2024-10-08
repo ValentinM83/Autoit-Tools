@@ -2,7 +2,10 @@ import * as vscode from 'vscode';
 import { exec } from 'child_process';
 
 export function activate(context: vscode.ExtensionContext) {
-    let disposable = vscode.commands.registerCommand('extension.openAutoIt3Help', () => {
+    const config = vscode.workspace.getConfiguration('autoit-tools');
+    const autoIt3HelpPath = config.get('autoIt3HelpPath');
+    
+    let disposable = vscode.commands.registerCommand('autoit-tools.openAutoIt3Help', () => {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
             const selection = editor.selection;
@@ -10,7 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
             const word = editor.document.getText(wordRange);
 
             if (word) {
-                const command = `"C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe" ${word}`;
+                const command = `"${autoIt3HelpPath}" ${word}`;
                 exec(command, (error, stdout, stderr) => {
                     if (error) {
                         vscode.window.showErrorMessage(`Error: ${error.message}`);

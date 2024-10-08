@@ -2,7 +2,11 @@
   "name": "autoit-tools",
   "displayName": "AutoIt Tools",
   "description": "Simplifying AutoIt3 development in Visual Studio Code",
-  "icon": "images/icon.png",
+  "author": {
+    "name": "Valentin Mairesse"
+  },
+  "publisher": "valmrse",
+  "icon": "images/logo.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.54.0"
@@ -10,19 +14,35 @@
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VALENTIN4real/Autoit-Tools"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "AutoIt Tools",
+      "properties": {
+        "autoit-tools.autoIt3HelpPath": {
+          "type": "string",
+          "default": "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe",
+          "description": "Path to AutoIt3Help.exe"
+        }
+      }
+    },
     "commands": [
       {
-        "command": "extension.openAutoIt3Help",
+        "command": "autoit-tools.openAutoIt3Help",
         "title": "Open AutoIt3Help"
       }
     ],
     "keybindings": [
       {
-        "command": "extension.openAutoIt3Help",
-        "key": "ctrl+F1",
+        "command": "autoit-tools.openAutoIt3Help",
+        "key": "ctrl+f1",
+        "mac": "cmd+f1",
         "when": "editorTextFocus"
       }
     ]
