@@ -1,6 +1,18 @@
 # Change Log
 All notable changes to the "AutoIt Tools" extension will be documented in this file.
 
+## [0.0.3] - 2024-10-08
+
+### Added
+
+- Support for configuring multiple UDFs in settings.json to open custom CHM files based on the UDF prefix.
+- Dynamic loading of UDF paths to handle configuration changes without restarting the extension.
+
+### Changed
+
+- Switched to start for Windows processes to ensure they run asynchronously and do not block further execution.
+
+
 ## [0.0.2] - 2024-10-08
 
 ### Added
